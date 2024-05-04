@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>DataTable con BD Usuario</title>	
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+               <table id="tablaUsuarios" class="table table-striped table-bordered">
+               <thead>
+                 <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>                                
+                    <th>TELEFONO</th>                      
+                </tr>
+               </thead>
+               <tbody>
+               </tbody>
+               </table> 
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./app.js"></script>
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
+    <script>
+        $(document).ready(function() {   
+            var url = 'http://localhost:3000/data';
+   
+             $('#tablaUsuarios').DataTable({            
+                 "ajax":{
+                     "url": url,
+                     "dataSrc":""
+                 },
+                 "columns":[
+                     {"data":"id"},
+                     {"data":"nombre"},
+                     {"data":"apellido"},
+                     {"data":"telefono"},
+                 ],
+             });
+       });
+   </script>
+</body>
+</html>
